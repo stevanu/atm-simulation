@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mesin ATM</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <body>
+    <div class="atm-container">
+      <!-- Halaman Login -->
+      <img src="img/dibimbing.png" class="dibimbing">
+        <div class="screen active" id="login-screen">
+          <h2>Login</h2>
+          <input type="text" id="login-name" placeholder="Nama Lengkap" required />
+          <input type="password" id="login-password" placeholder="Password" required />
+          <input type="password" id="login-pin" placeholder="PIN" maxlength="4" required />
+          <button onclick="login()">Login</button>
+          <p id="login-error" class="error-text"></p>
+          <button onclick="showScreen('signup-screen')">Buat Akun Baru</button>
+        </div>
+      
+      <!-- Halaman Signup -->
+      <div class="screen" id="signup-screen">
+        <h2>Buat Akun Baru</h2>
+        <input type="text" id="signup-name" placeholder="Nama Lengkap" required />
+        <input type="password" id="signup-password" placeholder="Password" required />
+        <input type="password" id="signup-pin" placeholder="PIN (4 digit)" maxlength="4" required />
+        <button onclick="createAccount()">Buat Akun</button>
+        <p id="signup-error" class="error-text"></p>
+        <button onclick="showScreen('login-screen')">Sudah Punya Akun? Login</button>
+      </div>
+      
+      <!-- Menu Utama -->
+      <div class="screen" id="menu-screen">
+        <h2>Menu Utama</h2>
+        <button onclick="showScreen('balance-screen')">Cek Saldo</button>
+        <button onclick="showScreen('deposit-screen')">Setor Uang</button>
+        <button onclick="showScreen('withdraw-screen')">Tarik Uang</button>
+        <button onclick="showScreen('transfer-screen')">Transfer Uang</button>
+        <button onclick="showScreen('history-screen')">Riwayat Transaksi</button>
+        <button onclick="logout()">Keluar</button>
+      </div>
+  
+      <!-- Cek Saldo -->
+      <div class="screen" id="balance-screen">
+        <h2>Saldo Anda</h2>
+        <p id="balance-display"></p>
+        <button onclick="backToMenu()">Kembali</button>
+      </div>
+  
+      <!-- Setor Uang -->
+      <div class="screen" id="deposit-screen">
+        <h2>Setor Uang</h2>
+        <input type="text" id="deposit-amount" placeholder="Masukkan jumlah"/>
+        <button onclick="deposit()">Setor</button>
+        <button onclick="backToMenu()">Kembali</button>
+      </div>
+  
+      <!-- Tarik Uang -->
+      <div class="screen" id="withdraw-screen">
+        <h2>Tarik Uang</h2>
+        <input type="text" id="withdraw-amount" placeholder="Masukkan jumlah"/>
+        <button onclick="withdraw()">Tarik</button>
+        <button onclick="backToMenu()">Kembali</button>
+      </div>
+  
+      <!-- Transfer Uang -->
+      <div class="screen" id="transfer-screen">
+        <h2>Transfer Uang</h2>
+        <input type="text" id="transfer-recipient" placeholder="Nama Penerima">
+        <input type="text" id="transfer-amount" placeholder="Jumlah Transfer">
+        <button onclick="transferMoney()">Transfer</button>
+        <p id="transfer-error" class="error-text"></p>
+        <button onclick="backToMenu()">Kembali</button>
+      </div>
+  
+      <!-- Riwayat Transaksi -->
+      <div class="screen" id="history-screen">
+        <h2>Riwayat Transaksi</h2>
+        <ul id="history-list"></ul>
+        <button onclick="clearHistory()">Hapus Semua Riwayat</button>
+        <button onclick="backToMenu()">Kembali</button>
+      </div>
+    </div>
+  
+    <!-- Transfer Confirmation Modal -->
+    <div id="transfer-confirm-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3 style="color: #007bff; margin-bottom: 15px;">Konfirmasi Transfer</h3>
+        <div class="transfer-details">
+          <p><strong>Nama Penerima:</strong> <span id="confirm-recipient-name"></span></p>
+          <p><strong>Jumlah Transfer:</strong> Rp <span id="confirm-transfer-amount"></span></p>
+          <p><strong>Saldo Setelah Transfer:</strong> Rp <span id="confirm-balance-after"></span></p>
+        </div>
+        <div class="modal-actions">
+          <button id="cancel-transfer-btn" class="modal-btn btn-cancel">Batal</button>
+          <button id="confirm-transfer-btn" class="modal-btn btn-confirm">Konfirmasi</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Elemen tambahan -->
+    <script src="script.js"></script>
+    <div id="toast-container"></div>
+    <div id="money-rain"></div>
+</body>
+</html>
