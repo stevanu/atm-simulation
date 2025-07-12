@@ -12,7 +12,7 @@ It mimics the basic functionality of an ATM machine, allowing you to register, l
 
 ## ✨ Features
 
-- 🔐 **Register & Login** with name and secure PIN
+- 🔐 **Register & Login** with name and PIN
 - 💰 **Check Balance** — see your current balance
 - ➕ **Deposit** — add money to your account
 - ➖ **Withdraw** — take money out
