@@ -8,7 +8,7 @@ function createAccount() {
   const password = document.getElementById("signup-password").value;
   const pin = document.getElementById("signup-pin").value;
 
-  // Validasi kuat
+  // Validasi 
   if (!name || !password || pin.length !== 4 || !/^\d+$/.test(pin)) {
     showToast("Harap isi semua field dan pastikan PIN 4 digit angka", "error");
     return;
@@ -225,7 +225,6 @@ function clearForm(formId) {
   if (form) form.reset();
 }
 
-// Event Listeners
 document.getElementById('deposit-amount').addEventListener('input', formatCurrencyInput);
 document.getElementById('withdraw-amount').addEventListener('input', formatCurrencyInput);
 document.getElementById('transfer-amount').addEventListener('input', formatCurrencyInput);
