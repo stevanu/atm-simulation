@@ -225,7 +225,6 @@ function clearForm(formId) {
   if (form) form.reset();
 }
 
-// Event Listeners
 document.getElementById('deposit-amount').addEventListener('input', formatCurrencyInput);
 document.getElementById('withdraw-amount').addEventListener('input', formatCurrencyInput);
 document.getElementById('transfer-amount').addEventListener('input', formatCurrencyInput);
