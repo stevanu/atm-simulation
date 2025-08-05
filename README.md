@@ -65,3 +65,5 @@ Once logged in, you can:
 
 All data persists in LocalStorage, so your account and balance stay intact even if you refresh or close the browser.
 
+
+// Refactor log untuk tampilan yang lebih rapi
