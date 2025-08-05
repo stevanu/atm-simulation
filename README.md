@@ -32,16 +32,6 @@ It mimics the basic functionality of an ATM machine, allowing you to register, l
 
 ---
 
-## 📂 Project Structure
-```
-atm-simulation/
-│
-├── index.html # Main UI
-├── style.css # Styling
-├── script.js # Logic for ATM functions
-└── README.md
-```
-
 ---
 
 ## 🚀 Getting Started
